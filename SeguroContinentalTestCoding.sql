@@ -1,19 +1,3 @@
-CREATE TABLE Usuario(
-	Codigo INT PRIMARY KEY IDENTITY(1,1),
-	Nombre VARCHAR(150),
-	EsAdministrador BIT DEFAULT 0
-)
-
---SELECT * FROM Usuario
---INSERT INTO Usuario (Nombre, EsAdministrador)
---VALUES ('Keny David Travanino Madrid', 1)
-
-CREATE TABLE Permisos (
-	Codigo INT PRIMARY KEY IDENTITY(1,1),
-	Nombre VARCHAR(200),
-	Descripcion VARCHAR(MAX),
-	CodigoPermisoPadre INT,
-) 
 
 CREATE TABLE TipoPersona (
 	Codigo INT PRIMARY KEY IDENTITY(1,1),
@@ -24,8 +8,6 @@ CREATE TABLE TipoPersona (
 	FechaModificacion DATETIME
 )
 
-SELECT * FROM TipoPersona
---INSERT INTO TipoPersona ()
 
 CREATE TABLE Cliente(
 	Codigo INT PRIMARY KEY IDENTITY(1,1),
@@ -45,16 +27,6 @@ ALTER TABLE Cliente
 ADD CONSTRAINT FkClienteTipoPersonaId
 FOREIGN KEY (TipoPersonaId)
 REFERENCES TipoPersona(Codigo);
-
---ALTER TABLE Cliente
---ADD CONSTRAINT FkClienteUsuarioCreacion
---FOREIGN KEY (UsuarioCreacionId)
---REFERENCES Usuario(Codigo);
-
---ALTER TABLE Cliente
---ADD CONSTRAINT FkClienteUsuarioModificacion
---FOREIGN KEY (UsuarioModificacionId)
---REFERENCES Usuario(Codigo);
 
 
 CREATE TABLE Poliza(
